@@ -158,7 +158,9 @@
                             return _destroy();
                         }
                         var $next = $(this).find(_options.nextSelector).first();
-                        alert(next.length);
+                        alert(next.length+"length");
+                        _debug('$next', next);
+                        
                         if(next.length==0) {
                             alert('length=0');
                             _debug('next', 'length=0');
