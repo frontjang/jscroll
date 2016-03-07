@@ -158,7 +158,11 @@
                             return _destroy();
                         }
                         var $next = $(this).find(_options.nextSelector).first();
-                        if(next.length==0) $next= $(window).find(_options.nextSelector).first(); //for dynamic paging
+                        if(next.length==0) {
+                            _debug('next', 'length=0');
+                            $next= $(window).find(_options.nextSelector).first(); //for dynamic paging
+                            _debug('next', next);
+                        }
                         
                         data.waiting = false;
                         data.nextHref = $next.attr('href') ? $.trim($next.attr('href') + ' ' + _options.contentSelector) : false;
