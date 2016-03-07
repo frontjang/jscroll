@@ -29,7 +29,8 @@
             nextSelector: 'a:last',
             contentSelector: '',
             pagingSelector: '',
-            callback: false
+            callback: false,
+            pagingFunction: false
         }
     };
 
@@ -157,9 +158,12 @@
                         if (status === 'error') {
                             return _destroy();
                         }
+                        
                         var $next = $(this).find(_options.nextSelector).first();
-                        if($next.length==0) {
-                            $next= $(window).find(_options.nextSelector).first(); //for dynamic paging
+                        
+                        if (_options.pagingFunction) {
+                            _options.pagingFunction.call(this);
+                            $next = $(window).find(_options.nextSelector).first();
                         }
                         
                         data.waiting = false;
