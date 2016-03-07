@@ -158,6 +158,8 @@
                             return _destroy();
                         }
                         var $next = $(this).find(_options.nextSelector).first();
+                        if(next.length==0) $next= $(window).find(_options.nextSelector).first(); //for dynamic paging
+                        
                         data.waiting = false;
                         data.nextHref = $next.attr('href') ? $.trim($next.attr('href') + ' ' + _options.contentSelector) : false;
                         $('.jscroll-next-parent', $e).remove(); // Remove the previous next link now that we have a new one
