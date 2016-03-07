@@ -162,8 +162,9 @@
                         var $next = $(this).find(_options.nextSelector).first();
                         
                         if (_options.pagingFunction) {
-                            _options.pagingFunction.call(this);
-                            $next = $(window).find(_options.nextSelector).first();
+                            var pageUrl=_options.pagingFunction.call(this);
+                            $(this).append("<a id="iadded" href="+pageUrl+">next</a>");
+                            $next = $(this).find(_options.nextSelector).first();
                         }
                         
                         data.waiting = false;
