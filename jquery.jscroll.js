@@ -163,7 +163,7 @@
                         
                         if (_options.pagingFunction) {
                             var pageUrl=_options.pagingFunction.call(this);
-                            $(this).append("<a id="iadded" href="+pageUrl+">next</a>");
+                            $(this).append("<a id='iadded' href='+pageUrl+'>next</a>");
                             $next = $(this).find(_options.nextSelector).first();
                         }
                         
