@@ -161,7 +161,7 @@
                         alert(next.length+"length");
                         _debug('$next', next);
                         
-                        if(next.length==0) {
+                        if(!next.length) {
                             alert('length=0');
                             _debug('next', 'length=0');
                             $next= $(window).find(_options.nextSelector).first(); //for dynamic paging
